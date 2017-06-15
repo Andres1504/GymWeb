@@ -1,0 +1,42 @@
+﻿@model GymPrimerParcialWeb.empleado
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>empleado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contrasena_emp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrasena_emp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num_emp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_emp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario.nombre_usu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario.nombre_usu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_emp }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

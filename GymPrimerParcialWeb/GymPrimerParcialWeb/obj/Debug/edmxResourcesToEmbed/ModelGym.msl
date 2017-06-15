@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="gymModelStoreContainer" CdmEntityContainer="gymEntities">
+    <EntitySetMapping Name="actividades">
+      <EntityTypeMapping TypeName="gymModel.actividades">
+        <MappingFragment StoreEntitySet="actividades">
+          <ScalarProperty Name="id_actv" ColumnName="id_actv" />
+          <ScalarProperty Name="nombre_actv" ColumnName="nombre_actv" />
+          <ScalarProperty Name="precio_act" ColumnName="precio_act" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="domicilio">
+      <EntityTypeMapping TypeName="gymModel.domicilio">
+        <MappingFragment StoreEntitySet="domicilio">
+          <ScalarProperty Name="id_dom" ColumnName="id_dom" />
+          <ScalarProperty Name="calle_dom" ColumnName="calle_dom" />
+          <ScalarProperty Name="num_casa_dom" ColumnName="num_casa_dom" />
+          <ScalarProperty Name="colonia_dom" ColumnName="colonia_dom" />
+          <ScalarProperty Name="cp_dom" ColumnName="cp_dom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empleado">
+      <EntityTypeMapping TypeName="gymModel.empleado">
+        <MappingFragment StoreEntitySet="empleado">
+          <ScalarProperty Name="id_emp" ColumnName="id_emp" />
+          <ScalarProperty Name="contrasena_emp" ColumnName="contrasena_emp" />
+          <ScalarProperty Name="num_emp" ColumnName="num_emp" />
+          <ScalarProperty Name="id_usu" ColumnName="id_usu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="membresia">
+      <EntityTypeMapping TypeName="gymModel.membresia">
+        <MappingFragment StoreEntitySet="membresia">
+          <ScalarProperty Name="id_mem" ColumnName="id_mem" />
+          <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+          <ScalarProperty Name="estatus_mem" ColumnName="estatus_mem" />
+          <ScalarProperty Name="fecha_fin_mem" ColumnName="fecha_fin_mem" />
+          <ScalarProperty Name="id_usu" ColumnName="id_usu" />
+          <ScalarProperty Name="id_mes" ColumnName="id_mes" />
+          <ScalarProperty Name="id_precio" ColumnName="id_precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="meses">
+      <EntityTypeMapping TypeName="gymModel.meses">
+        <MappingFragment StoreEntitySet="meses">
+          <ScalarProperty Name="id_mes" ColumnName="id_mes" />
+          <ScalarProperty Name="nombre_mes" ColumnName="nombre_mes" />
+          <ScalarProperty Name="dias_mes" ColumnName="dias_mes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="precios">
+      <EntityTypeMapping TypeName="gymModel.precios">
+        <MappingFragment StoreEntitySet="precios">
+          <ScalarProperty Name="id_precio" ColumnName="id_precio" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="id_tipo_pag" ColumnName="id_tipo_pag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tarjeta">
+      <EntityTypeMapping TypeName="gymModel.tarjeta">
+        <MappingFragment StoreEntitySet="tarjeta">
+          <ScalarProperty Name="num_tar" ColumnName="num_tar" />
+          <ScalarProperty Name="titular" ColumnName="titular" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="fecha_ven" ColumnName="fecha_ven" />
+          <ScalarProperty Name="id_usu" ColumnName="id_usu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_pago">
+      <EntityTypeMapping TypeName="gymModel.tipo_pago">
+        <MappingFragment StoreEntitySet="tipo_pago">
+          <ScalarProperty Name="id_tipo_pag" ColumnName="id_tipo_pag" />
+          <ScalarProperty Name="tipo_pag" ColumnName="tipo_pag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="gymModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre_usu" ColumnName="nombre_usu" />
+          <ScalarProperty Name="apellido_pat_usu" ColumnName="apellido_pat_usu" />
+          <ScalarProperty Name="apellido_mat_usu" ColumnName="apellido_mat_usu" />
+          <ScalarProperty Name="genero_usu" ColumnName="genero_usu" />
+          <ScalarProperty Name="fecha_nac_usu" ColumnName="fecha_nac_usu" />
+          <ScalarProperty Name="telefono_usu" ColumnName="telefono_usu" />
+          <ScalarProperty Name="correo_usu" ColumnName="correo_usu" />
+          <ScalarProperty Name="id_domicilio" ColumnName="id_domicilio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="gymModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="gymModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="gymModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="gymModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="gymModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ubicacion">
+      <EntityTypeMapping TypeName="gymModel.Ubicacion">
+        <MappingFragment StoreEntitySet="Ubicacion">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="idUbicacion" ColumnName="idUbicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="gymModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

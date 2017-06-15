@@ -1,0 +1,48 @@
+﻿@model IEnumerable<GymPrimerParcialWeb.actividades>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_actv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_actv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio_act)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_actv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_actv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio_act)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id_actv }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id_actv }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id_actv })
+        <td>@Ajax.ActionLink("Ver Precios", "VerPrecios", "actividades", new { id = item.id_actv }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "detalle" })</td>
+        </td>
+    </tr>
+}
+
+</table>
+
+<div id="detalle"></div>

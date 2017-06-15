@@ -1,0 +1,82 @@
+﻿@model GymPrimerParcialWeb.usuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_usu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_usu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellido_pat_usu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido_pat_usu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellido_mat_usu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido_mat_usu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.genero_usu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.genero_usu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_nac_usu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_nac_usu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono_usu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono_usu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo_usu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo_usu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.domicilio.calle_dom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.domicilio.calle_dom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_usuario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

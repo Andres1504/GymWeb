@@ -1,0 +1,50 @@
+﻿@model GymPrimerParcialWeb.domicilio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>domicilio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.calle_dom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.calle_dom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num_casa_dom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_casa_dom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.colonia_dom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.colonia_dom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cp_dom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cp_dom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_dom }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

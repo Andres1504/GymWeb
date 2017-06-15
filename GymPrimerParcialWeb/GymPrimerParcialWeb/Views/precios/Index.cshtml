@@ -1,0 +1,51 @@
+﻿@model IEnumerable<GymPrimerParcialWeb.precios>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actividades.nombre_actv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_pago.tipo_pag)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.actividades.nombre_actv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_pago.tipo_pag)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_precio }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_precio }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_precio })
+        </td>
+    </tr>
+}
+
+</table>

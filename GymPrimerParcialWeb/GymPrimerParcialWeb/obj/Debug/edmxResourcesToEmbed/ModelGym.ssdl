@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gymModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="actividades">
+    <Key>
+      <PropertyRef Name="id_actv" />
+    </Key>
+    <Property Name="id_actv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_actv" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="precio_act" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="domicilio">
+    <Key>
+      <PropertyRef Name="id_dom" />
+    </Key>
+    <Property Name="id_dom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="calle_dom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="num_casa_dom" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="colonia_dom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cp_dom" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="id_emp" />
+    </Key>
+    <Property Name="id_emp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="contrasena_emp" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="num_emp" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="id_usu" Type="int" />
+  </EntityType>
+  <EntityType Name="membresia">
+    <Key>
+      <PropertyRef Name="id_mem" />
+    </Key>
+    <Property Name="id_mem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha_pago" Type="date" Nullable="false" />
+    <Property Name="estatus_mem" Type="bit" />
+    <Property Name="fecha_fin_mem" Type="date" Nullable="false" />
+    <Property Name="id_usu" Type="int" />
+    <Property Name="id_mes" Type="int" />
+    <Property Name="id_precio" Type="int" />
+  </EntityType>
+  <EntityType Name="meses">
+    <Key>
+      <PropertyRef Name="id_mes" />
+    </Key>
+    <Property Name="id_mes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_mes" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="dias_mes" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="precios">
+    <Key>
+      <PropertyRef Name="id_precio" />
+    </Key>
+    <Property Name="id_precio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="precio" Type="int" Nullable="false" />
+    <Property Name="id_actividad" Type="int" />
+    <Property Name="id_tipo_pag" Type="int" />
+  </EntityType>
+  <EntityType Name="tarjeta">
+    <Key>
+      <PropertyRef Name="num_tar" />
+    </Key>
+    <Property Name="num_tar" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="titular" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="fecha_ven" Type="date" Nullable="false" />
+    <Property Name="id_usu" Type="int" />
+  </EntityType>
+  <EntityType Name="tipo_pago">
+    <Key>
+      <PropertyRef Name="id_tipo_pag" />
+    </Key>
+    <Property Name="id_tipo_pag" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_pag" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ubicacion">
+    <Key>
+      <PropertyRef Name="idUbicacion" />
+    </Key>
+    <Property Name="idUbicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="longitud" Type="float" Nullable="false" />
+    <Property Name="latitud" Type="float" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_usu" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="apellido_pat_usu" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="apellido_mat_usu" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="genero_usu" Type="varchar" MaxLength="12" />
+    <Property Name="fecha_nac_usu" Type="date" Nullable="false" />
+    <Property Name="telefono_usu" Type="varchar" MaxLength="10" />
+    <Property Name="correo_usu" Type="varchar" MaxLength="25" />
+    <Property Name="id_domicilio" Type="int" />
+  </EntityType>
+  <Association Name="fk_act_pag">
+    <End Role="actividades" Type="Self.actividades" Multiplicity="0..1" />
+    <End Role="precios" Type="Self.precios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="actividades">
+        <PropertyRef Name="id_actv" />
+      </Principal>
+      <Dependent Role="precios">
+        <PropertyRef Name="id_actividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_dom">
+    <End Role="domicilio" Type="Self.domicilio" Multiplicity="0..1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="domicilio">
+        <PropertyRef Name="id_dom" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="id_domicilio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_emp">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="id_usu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_mes_mem">
+    <End Role="meses" Type="Self.meses" Multiplicity="0..1" />
+    <End Role="membresia" Type="Self.membresia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="meses">
+        <PropertyRef Name="id_mes" />
+      </Principal>
+      <Dependent Role="membresia">
+        <PropertyRef Name="id_mes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_precio_mem">
+    <End Role="precios" Type="Self.precios" Multiplicity="0..1" />
+    <End Role="membresia" Type="Self.membresia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="precios">
+        <PropertyRef Name="id_precio" />
+      </Principal>
+      <Dependent Role="membresia">
+        <PropertyRef Name="id_precio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tar">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="tarjeta" Type="Self.tarjeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="tarjeta">
+        <PropertyRef Name="id_usu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tipo_pag">
+    <End Role="tipo_pago" Type="Self.tipo_pago" Multiplicity="0..1" />
+    <End Role="precios" Type="Self.precios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_pago">
+        <PropertyRef Name="id_tipo_pag" />
+      </Principal>
+      <Dependent Role="precios">
+        <PropertyRef Name="id_tipo_pag" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usu_mem">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="membresia" Type="Self.membresia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="membresia">
+        <PropertyRef Name="id_usu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="gymModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="actividades" EntityType="Self.actividades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="domicilio" EntityType="Self.domicilio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="membresia" EntityType="Self.membresia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="meses" EntityType="Self.meses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="precios" EntityType="Self.precios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tarjeta" EntityType="Self.tarjeta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_pago" EntityType="Self.tipo_pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ubicacion" EntityType="Self.Ubicacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_act_pag" Association="Self.fk_act_pag">
+      <End Role="actividades" EntitySet="actividades" />
+      <End Role="precios" EntitySet="precios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_dom" Association="Self.fk_dom">
+      <End Role="domicilio" EntitySet="domicilio" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_emp" Association="Self.fk_emp">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="fk_mes_mem" Association="Self.fk_mes_mem">
+      <End Role="meses" EntitySet="meses" />
+      <End Role="membresia" EntitySet="membresia" />
+    </AssociationSet>
+    <AssociationSet Name="fk_precio_mem" Association="Self.fk_precio_mem">
+      <End Role="precios" EntitySet="precios" />
+      <End Role="membresia" EntitySet="membresia" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tar" Association="Self.fk_tar">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="tarjeta" EntitySet="tarjeta" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tipo_pag" Association="Self.fk_tipo_pag">
+      <End Role="tipo_pago" EntitySet="tipo_pago" />
+      <End Role="precios" EntitySet="precios" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usu_mem" Association="Self.fk_usu_mem">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="membresia" EntitySet="membresia" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,945 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="gymModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="actividades">
+          <Key>
+            <PropertyRef Name="id_actv" />
+          </Key>
+          <Property Name="id_actv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_actv" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="precio_act" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="domicilio">
+          <Key>
+            <PropertyRef Name="id_dom" />
+          </Key>
+          <Property Name="id_dom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="calle_dom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="num_casa_dom" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="colonia_dom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cp_dom" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="id_emp" />
+          </Key>
+          <Property Name="id_emp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="contrasena_emp" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="num_emp" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="id_usu" Type="int" />
+        </EntityType>
+        <EntityType Name="membresia">
+          <Key>
+            <PropertyRef Name="id_mem" />
+          </Key>
+          <Property Name="id_mem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha_pago" Type="date" Nullable="false" />
+          <Property Name="estatus_mem" Type="bit" />
+          <Property Name="fecha_fin_mem" Type="date" Nullable="false" />
+          <Property Name="id_usu" Type="int" />
+          <Property Name="id_mes" Type="int" />
+          <Property Name="id_precio" Type="int" />
+        </EntityType>
+        <EntityType Name="meses">
+          <Key>
+            <PropertyRef Name="id_mes" />
+          </Key>
+          <Property Name="id_mes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_mes" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="dias_mes" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="precios">
+          <Key>
+            <PropertyRef Name="id_precio" />
+          </Key>
+          <Property Name="id_precio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="precio" Type="int" Nullable="false" />
+          <Property Name="id_actividad" Type="int" />
+          <Property Name="id_tipo_pag" Type="int" />
+        </EntityType>
+        <EntityType Name="tarjeta">
+          <Key>
+            <PropertyRef Name="num_tar" />
+          </Key>
+          <Property Name="num_tar" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="titular" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="fecha_ven" Type="date" Nullable="false" />
+          <Property Name="id_usu" Type="int" />
+        </EntityType>
+        <EntityType Name="tipo_pago">
+          <Key>
+            <PropertyRef Name="id_tipo_pag" />
+          </Key>
+          <Property Name="id_tipo_pag" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_pag" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ubicacion">
+          <Key>
+            <PropertyRef Name="idUbicacion" />
+          </Key>
+          <Property Name="idUbicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="longitud" Type="float" Nullable="false" />
+          <Property Name="latitud" Type="float" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_usu" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="apellido_pat_usu" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="apellido_mat_usu" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="genero_usu" Type="varchar" MaxLength="12" />
+          <Property Name="fecha_nac_usu" Type="date" Nullable="false" />
+          <Property Name="telefono_usu" Type="varchar" MaxLength="10" />
+          <Property Name="correo_usu" Type="varchar" MaxLength="25" />
+          <Property Name="id_domicilio" Type="int" />
+        </EntityType>
+        <Association Name="fk_act_pag">
+          <End Role="actividades" Type="Self.actividades" Multiplicity="0..1" />
+          <End Role="precios" Type="Self.precios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="actividades">
+              <PropertyRef Name="id_actv" />
+            </Principal>
+            <Dependent Role="precios">
+              <PropertyRef Name="id_actividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dom">
+          <End Role="domicilio" Type="Self.domicilio" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="domicilio">
+              <PropertyRef Name="id_dom" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_domicilio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_emp">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="id_usu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_mes_mem">
+          <End Role="meses" Type="Self.meses" Multiplicity="0..1" />
+          <End Role="membresia" Type="Self.membresia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="meses">
+              <PropertyRef Name="id_mes" />
+            </Principal>
+            <Dependent Role="membresia">
+              <PropertyRef Name="id_mes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_precio_mem">
+          <End Role="precios" Type="Self.precios" Multiplicity="0..1" />
+          <End Role="membresia" Type="Self.membresia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="precios">
+              <PropertyRef Name="id_precio" />
+            </Principal>
+            <Dependent Role="membresia">
+              <PropertyRef Name="id_precio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tar">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="tarjeta" Type="Self.tarjeta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="tarjeta">
+              <PropertyRef Name="id_usu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipo_pag">
+          <End Role="tipo_pago" Type="Self.tipo_pago" Multiplicity="0..1" />
+          <End Role="precios" Type="Self.precios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_pago">
+              <PropertyRef Name="id_tipo_pag" />
+            </Principal>
+            <Dependent Role="precios">
+              <PropertyRef Name="id_tipo_pag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usu_mem">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="membresia" Type="Self.membresia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="membresia">
+              <PropertyRef Name="id_usu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="gymModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="actividades" EntityType="Self.actividades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="domicilio" EntityType="Self.domicilio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="membresia" EntityType="Self.membresia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="meses" EntityType="Self.meses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="precios" EntityType="Self.precios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tarjeta" EntityType="Self.tarjeta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_pago" EntityType="Self.tipo_pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ubicacion" EntityType="Self.Ubicacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_act_pag" Association="Self.fk_act_pag">
+            <End Role="actividades" EntitySet="actividades" />
+            <End Role="precios" EntitySet="precios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dom" Association="Self.fk_dom">
+            <End Role="domicilio" EntitySet="domicilio" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_emp" Association="Self.fk_emp">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="fk_mes_mem" Association="Self.fk_mes_mem">
+            <End Role="meses" EntitySet="meses" />
+            <End Role="membresia" EntitySet="membresia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_precio_mem" Association="Self.fk_precio_mem">
+            <End Role="precios" EntitySet="precios" />
+            <End Role="membresia" EntitySet="membresia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tar" Association="Self.fk_tar">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="tarjeta" EntitySet="tarjeta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipo_pag" Association="Self.fk_tipo_pag">
+            <End Role="tipo_pago" EntitySet="tipo_pago" />
+            <End Role="precios" EntitySet="precios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usu_mem" Association="Self.fk_usu_mem">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="membresia" EntitySet="membresia" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="gymModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="actividades">
+          <Key>
+            <PropertyRef Name="id_actv" />
+          </Key>
+          <Property Name="id_actv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_actv" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="precio_act" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="precios" Relationship="Self.fk_act_pag" FromRole="actividades" ToRole="precios" />
+        </EntityType>
+        <EntityType Name="domicilio">
+          <Key>
+            <PropertyRef Name="id_dom" />
+          </Key>
+          <Property Name="id_dom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="calle_dom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="num_casa_dom" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="colonia_dom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cp_dom" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="usuario" Relationship="Self.fk_dom" FromRole="domicilio" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="id_emp" />
+          </Key>
+          <Property Name="id_emp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contrasena_emp" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="num_emp" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_usu" Type="Int32" />
+          <NavigationProperty Name="usuario" Relationship="Self.fk_emp" FromRole="empleado" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="membresia">
+          <Key>
+            <PropertyRef Name="id_mem" />
+          </Key>
+          <Property Name="id_mem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha_pago" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="estatus_mem" Type="Boolean" />
+          <Property Name="fecha_fin_mem" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id_usu" Type="Int32" />
+          <Property Name="id_mes" Type="Int32" />
+          <Property Name="id_precio" Type="Int32" />
+          <NavigationProperty Name="meses" Relationship="Self.fk_mes_mem" FromRole="membresia" ToRole="meses" />
+          <NavigationProperty Name="precios" Relationship="Self.fk_precio_mem" FromRole="membresia" ToRole="precios" />
+          <NavigationProperty Name="usuario" Relationship="Self.fk_usu_mem" FromRole="membresia" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="meses">
+          <Key>
+            <PropertyRef Name="id_mes" />
+          </Key>
+          <Property Name="id_mes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_mes" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dias_mes" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="membresia" Relationship="Self.fk_mes_mem" FromRole="meses" ToRole="membresia" />
+        </EntityType>
+        <EntityType Name="precios">
+          <Key>
+            <PropertyRef Name="id_precio" />
+          </Key>
+          <Property Name="id_precio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="precio" Type="Int32" Nullable="false" />
+          <Property Name="id_actividad" Type="Int32" />
+          <Property Name="id_tipo_pag" Type="Int32" />
+          <NavigationProperty Name="actividades" Relationship="Self.fk_act_pag" FromRole="precios" ToRole="actividades" />
+          <NavigationProperty Name="membresia" Relationship="Self.fk_precio_mem" FromRole="precios" ToRole="membresia" />
+          <NavigationProperty Name="tipo_pago" Relationship="Self.fk_tipo_pag" FromRole="precios" ToRole="tipo_pago" />
+        </EntityType>
+        <EntityType Name="tarjeta">
+          <Key>
+            <PropertyRef Name="num_tar" />
+          </Key>
+          <Property Name="num_tar" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="titular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_ven" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id_usu" Type="Int32" />
+          <NavigationProperty Name="usuario" Relationship="Self.fk_tar" FromRole="tarjeta" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="tipo_pago">
+          <Key>
+            <PropertyRef Name="id_tipo_pag" />
+          </Key>
+          <Property Name="id_tipo_pag" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_pag" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="precios" Relationship="Self.fk_tipo_pag" FromRole="tipo_pago" ToRole="precios" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_usu" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido_pat_usu" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido_mat_usu" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="genero_usu" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_nac_usu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="telefono_usu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="correo_usu" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="id_domicilio" Type="Int32" />
+          <NavigationProperty Name="domicilio" Relationship="Self.fk_dom" FromRole="usuario" ToRole="domicilio" />
+          <NavigationProperty Name="empleado" Relationship="Self.fk_emp" FromRole="usuario" ToRole="empleado" />
+          <NavigationProperty Name="membresia" Relationship="Self.fk_usu_mem" FromRole="usuario" ToRole="membresia" />
+          <NavigationProperty Name="tarjeta" Relationship="Self.fk_tar" FromRole="usuario" ToRole="tarjeta" />
+        </EntityType>
+        <Association Name="fk_act_pag">
+          <End Role="actividades" Type="Self.actividades" Multiplicity="0..1" />
+          <End Role="precios" Type="Self.precios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="actividades">
+              <PropertyRef Name="id_actv" />
+            </Principal>
+            <Dependent Role="precios">
+              <PropertyRef Name="id_actividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dom">
+          <End Role="domicilio" Type="Self.domicilio" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="domicilio">
+              <PropertyRef Name="id_dom" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_domicilio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_emp">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="id_usu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_mes_mem">
+          <End Role="meses" Type="Self.meses" Multiplicity="0..1" />
+          <End Role="membresia" Type="Self.membresia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="meses">
+              <PropertyRef Name="id_mes" />
+            </Principal>
+            <Dependent Role="membresia">
+              <PropertyRef Name="id_mes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_precio_mem">
+          <End Role="precios" Type="Self.precios" Multiplicity="0..1" />
+          <End Role="membresia" Type="Self.membresia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="precios">
+              <PropertyRef Name="id_precio" />
+            </Principal>
+            <Dependent Role="membresia">
+              <PropertyRef Name="id_precio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usu_mem">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="membresia" Type="Self.membresia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="membresia">
+              <PropertyRef Name="id_usu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipo_pag">
+          <End Role="tipo_pago" Type="Self.tipo_pago" Multiplicity="0..1" />
+          <End Role="precios" Type="Self.precios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_pago">
+              <PropertyRef Name="id_tipo_pag" />
+            </Principal>
+            <Dependent Role="precios">
+              <PropertyRef Name="id_tipo_pag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tar">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="tarjeta" Type="Self.tarjeta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="tarjeta">
+              <PropertyRef Name="id_usu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="gymEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="actividades" EntityType="Self.actividades" />
+          <EntitySet Name="domicilio" EntityType="Self.domicilio" />
+          <EntitySet Name="empleado" EntityType="Self.empleado" />
+          <EntitySet Name="membresia" EntityType="Self.membresia" />
+          <EntitySet Name="meses" EntityType="Self.meses" />
+          <EntitySet Name="precios" EntityType="Self.precios" />
+          <EntitySet Name="tarjeta" EntityType="Self.tarjeta" />
+          <EntitySet Name="tipo_pago" EntityType="Self.tipo_pago" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" />
+          <AssociationSet Name="fk_act_pag" Association="Self.fk_act_pag">
+            <End Role="actividades" EntitySet="actividades" />
+            <End Role="precios" EntitySet="precios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dom" Association="Self.fk_dom">
+            <End Role="domicilio" EntitySet="domicilio" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_emp" Association="Self.fk_emp">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="fk_mes_mem" Association="Self.fk_mes_mem">
+            <End Role="meses" EntitySet="meses" />
+            <End Role="membresia" EntitySet="membresia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_precio_mem" Association="Self.fk_precio_mem">
+            <End Role="precios" EntitySet="precios" />
+            <End Role="membresia" EntitySet="membresia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usu_mem" Association="Self.fk_usu_mem">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="membresia" EntitySet="membresia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipo_pag" Association="Self.fk_tipo_pag">
+            <End Role="tipo_pago" EntitySet="tipo_pago" />
+            <End Role="precios" EntitySet="precios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tar" Association="Self.fk_tar">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="tarjeta" EntitySet="tarjeta" />
+          </AssociationSet>
+          <EntitySet Name="C__MigrationHistory" EntityType="gymModel.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="gymModel.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="gymModel.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="gymModel.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="gymModel.AspNetUsers" />
+          <EntitySet Name="Ubicacion" EntityType="gymModel.Ubicacion" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="gymModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="gymModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="gymModel.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="gymModel.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="gymModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="gymModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="gymModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="gymModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="gymModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Ubicacion">
+          <Key>
+            <PropertyRef Name="idUbicacion" />
+          </Key>
+          <Property Name="idUbicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="longitud" Type="Double" Nullable="false" />
+          <Property Name="latitud" Type="Double" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="gymModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="gymModel.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="gymModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="gymModel.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="gymModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+          <End Type="gymModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="gymModelStoreContainer" CdmEntityContainer="gymEntities">
+          <EntitySetMapping Name="actividades">
+            <EntityTypeMapping TypeName="gymModel.actividades">
+              <MappingFragment StoreEntitySet="actividades">
+                <ScalarProperty Name="id_actv" ColumnName="id_actv" />
+                <ScalarProperty Name="nombre_actv" ColumnName="nombre_actv" />
+                <ScalarProperty Name="precio_act" ColumnName="precio_act" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="domicilio">
+            <EntityTypeMapping TypeName="gymModel.domicilio">
+              <MappingFragment StoreEntitySet="domicilio">
+                <ScalarProperty Name="id_dom" ColumnName="id_dom" />
+                <ScalarProperty Name="calle_dom" ColumnName="calle_dom" />
+                <ScalarProperty Name="num_casa_dom" ColumnName="num_casa_dom" />
+                <ScalarProperty Name="colonia_dom" ColumnName="colonia_dom" />
+                <ScalarProperty Name="cp_dom" ColumnName="cp_dom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empleado">
+            <EntityTypeMapping TypeName="gymModel.empleado">
+              <MappingFragment StoreEntitySet="empleado">
+                <ScalarProperty Name="id_emp" ColumnName="id_emp" />
+                <ScalarProperty Name="contrasena_emp" ColumnName="contrasena_emp" />
+                <ScalarProperty Name="num_emp" ColumnName="num_emp" />
+                <ScalarProperty Name="id_usu" ColumnName="id_usu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="membresia">
+            <EntityTypeMapping TypeName="gymModel.membresia">
+              <MappingFragment StoreEntitySet="membresia">
+                <ScalarProperty Name="id_mem" ColumnName="id_mem" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="estatus_mem" ColumnName="estatus_mem" />
+                <ScalarProperty Name="fecha_fin_mem" ColumnName="fecha_fin_mem" />
+                <ScalarProperty Name="id_usu" ColumnName="id_usu" />
+                <ScalarProperty Name="id_mes" ColumnName="id_mes" />
+                <ScalarProperty Name="id_precio" ColumnName="id_precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="meses">
+            <EntityTypeMapping TypeName="gymModel.meses">
+              <MappingFragment StoreEntitySet="meses">
+                <ScalarProperty Name="id_mes" ColumnName="id_mes" />
+                <ScalarProperty Name="nombre_mes" ColumnName="nombre_mes" />
+                <ScalarProperty Name="dias_mes" ColumnName="dias_mes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="precios">
+            <EntityTypeMapping TypeName="gymModel.precios">
+              <MappingFragment StoreEntitySet="precios">
+                <ScalarProperty Name="id_precio" ColumnName="id_precio" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+                <ScalarProperty Name="id_tipo_pag" ColumnName="id_tipo_pag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tarjeta">
+            <EntityTypeMapping TypeName="gymModel.tarjeta">
+              <MappingFragment StoreEntitySet="tarjeta">
+                <ScalarProperty Name="num_tar" ColumnName="num_tar" />
+                <ScalarProperty Name="titular" ColumnName="titular" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="fecha_ven" ColumnName="fecha_ven" />
+                <ScalarProperty Name="id_usu" ColumnName="id_usu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_pago">
+            <EntityTypeMapping TypeName="gymModel.tipo_pago">
+              <MappingFragment StoreEntitySet="tipo_pago">
+                <ScalarProperty Name="id_tipo_pag" ColumnName="id_tipo_pag" />
+                <ScalarProperty Name="tipo_pag" ColumnName="tipo_pag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="gymModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="nombre_usu" ColumnName="nombre_usu" />
+                <ScalarProperty Name="apellido_pat_usu" ColumnName="apellido_pat_usu" />
+                <ScalarProperty Name="apellido_mat_usu" ColumnName="apellido_mat_usu" />
+                <ScalarProperty Name="genero_usu" ColumnName="genero_usu" />
+                <ScalarProperty Name="fecha_nac_usu" ColumnName="fecha_nac_usu" />
+                <ScalarProperty Name="telefono_usu" ColumnName="telefono_usu" />
+                <ScalarProperty Name="correo_usu" ColumnName="correo_usu" />
+                <ScalarProperty Name="id_domicilio" ColumnName="id_domicilio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="gymModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="gymModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="gymModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="gymModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="gymModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ubicacion">
+            <EntityTypeMapping TypeName="gymModel.Ubicacion">
+              <MappingFragment StoreEntitySet="Ubicacion">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="latitud" ColumnName="latitud" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="idUbicacion" ColumnName="idUbicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="gymModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
